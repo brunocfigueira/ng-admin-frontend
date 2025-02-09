@@ -1,0 +1,54 @@
+<div class="item-details-table-container">
+  <div class="item-details-table-header">
+    <div class="item-details-table-header-left-content">
+      <span class="item-detail-title">{{ detailTitle }}</span>
+    </div>
+    <div class="item-details-table-header-right-content">
+      <div class="item-details-table-header-handles">
+        <div class="item-details-content-search">
+          <mat-form-field *ngIf="showSearch" class="item-details-table-component-input-search">
+            <button mat-icon-button matPrefix (click)="clearInputFilter()" [matTooltip]="appConst.TABLE.TOOLTIP.CLEAR">
+              <mat-icon aria-hidden="false">{{appConst.TABLE.ICON.CLOSE}}</mat-icon>
+            </button>
+            <input matInput
+                   [placeholder]="appConst.PLACEHOLDERS.FILTER"
+                   [(ngModel)]="inputFilter"
+                   (keyup.enter)="filterData()"
+            />
+            <button mat-icon-button matSuffix (click)="filterData()" [matTooltip]="appConst.TABLE.TOOLTIP.FILTER">
+              <mat-icon aria-hidden="false">{{ appConst.TABLE.ICON.FILTER }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive" [style]="applyMaxHeight()">
+    <table mat-table [dataSource]="dataSource" matSort class="item-details-table-component">
+      <ng-container *ngFor="let column of dataColumns" [matColumnDef]="column.key">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column.title }}</th>
+        <td mat-cell *matCellDef="let element"> {{ element[column.key] }}</td>
+      </ng-container>
+      <ng-container *matNoDataRow>
+        <tr class="data-not-found">
+          <td [attr.colspan]="displayedColumns.length">
+            <div class="text-center">
+              <div>{{ appConst.TABLE.LABEL.DATA_NOT_FOUND }}</div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="item-details-table-pagination">
+    <mat-paginator *ngIf="showPagination"
+                   (page)="pageChange($event)"
+                   [length]="dataSourceLength"
+                   [pageSize]="pageSize"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="pageSizeOptions"
+    ></mat-paginator>
+  </div>
+</div>

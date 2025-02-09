@@ -1,0 +1,18 @@
+.header-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  min-height: 50px !important;
+}
+
+.header-icon-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-background-color {
+  background-color: #123142 !important;
+}
+
+mat-toolbar {
+  color: #ffffff !important;
+}

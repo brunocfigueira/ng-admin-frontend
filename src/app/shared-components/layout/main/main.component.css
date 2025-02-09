@@ -1,0 +1,66 @@
+.sidenav-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.sidenav-menu mat-icon {
+  font-size: 1.5em;
+}
+
+.sidenav-left {
+  width: 250px !important;
+}
+
+.sidenav-right {
+  width: 350px !important;
+}
+
+.sidenav-right-header {
+  justify-content: space-between !important;
+}
+.display-flex-center{
+  display: flex !important;
+  align-items: center !important;
+}
+.pl-25 {
+  padding-left: 25px;
+}
+
+.pr-10 {
+  padding-right: 30px;
+}
+
+.p-16 {
+  padding: 16px;
+}
+
+.main-icon-spacer {
+  flex: 1 1 auto;
+}
+
+.main-background {
+  background: var(--app-primary-background-color);
+  min-height: auto;
+}
+
+.main-card {
+  min-height: calc(100vh - 150px);
+}
+
+.card-header {
+  padding: 16px !important;
+}
+
+.expanded {
+  background: transparent !important;
+  border: 0 transparent !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+mat-toolbar {
+  background-color: #3b657a !important;
+  color: var(--app-primary-text-light-color) !important;
+}

@@ -1,0 +1,60 @@
+<p>Use this data to define the height and width of a component based on the browser screen reference.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+        <code>
+          import WindowSizeService from '../../window-size.service';
+
+          export class YourComponent implements OnInit &lbrace
+            constructor(private windowSizeService: WindowSizeService) &lbrace;&rbrace;
+            ngOnInit(): void &lbrace;
+
+
+              const dataWindow =  this.windowSizeService.getCurrentSize();
+              // screen width
+              console.log(dataWindow.width);
+              // screen height
+              console.log(dataWindow.height);
+
+              // percentage 30% for width
+              const widthPercentage =  this.windowSizeService.getCurrentWidthByPercentage(0.3);
+              // screen width
+              console.log(widthPercentage);
+              // percentage 30% for height
+              const heightPercentage =  this.windowSizeService.getCurrentHeightByPercentage(0.3);
+              // screen height
+              console.log(heightPercentage);
+            &rbrace;
+          &rbrace;
+        </code>
+      </pre>
+</div>
+<section>
+  <p><b>Examples</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show Data Window"
+      (onClick)="onClickButtonDataWindow(1)">
+    </app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show Width Window 30%"
+      (onClick)="onClickButtonDataWindow(2)">
+    </app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show Height Window 30%"
+      (onClick)="onClickButtonDataWindow(3)">
+    </app-action-button>
+  </div>
+</section>
+<section>
+  <p><b>Results</b></p>
+  <div class="display-results">
+    <div>{{ dataWindowValue | json }}</div>
+  </div>
+</section>

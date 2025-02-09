@@ -1,0 +1,58 @@
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexible-form-field .mat-mdc-text-field-wrapper {
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.table-header .pagination-container {
+  display: flex;
+  align-items: center;
+}
+
+th.table-col-actions, td.table-col-button-actions {
+  text-align: center !important;
+}
+
+mat-header-cell.table-col-actions, mat-header-cell.table-col-button-actions {
+  justify-content: center !important;
+}
+
+.expanded-content {
+  padding: 10px;
+  border: 1px solid var(--app-primary-border-color);
+  margin: 10px;
+  background-color: var(--app-secondary-background-color);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+/* Container principal para limitar a largura */
+.table-container {
+  width: 100%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.btn-new, .btn-new mat-icon {
+  color: var(--app-tag-button-new-color);
+}
+
+.btn-delete, .btn-delete mat-icon {
+  color: var(--app-tag-button-delete-color);
+}
+
+.btn-edit, .btn-edit mat-icon {
+  color: var(--app-tag-button-edit-color);
+}

@@ -1,0 +1,180 @@
+<div class="table-container">
+  <div *ngIf="showHandles()" class="table-header">
+    <div class="menu-content">
+      <div class="menu-items">
+        <button mat-button
+                [matMenuTriggerFor]="menu"
+                aria-label="menu">
+          <span>{{ appConst.TABLE.LABEL.MENU_OPTION }}</span>
+          <mat-icon>{{ appConst.TABLE.ICON.MENU_OPTION }}</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item
+                  *ngIf="showActionRefresh"
+                  (click)="refreshTable()">
+            <mat-icon aria-hidden="false">{{ appConst.TABLE.ICON.MENU_REFRESH }}</mat-icon>
+            <span>{{ appConst.TABLE.LABEL.MENU_REFRESH }}</span>
+          </button>
+          <button mat-menu-item
+                  class="btn-new"
+                  *ngIf="showActionCreate"
+                  (click)="createItem()">
+            <mat-icon>{{ appConst.TABLE.ICON.MENU_NEW }}</mat-icon>
+            <span>{{ appConst.TABLE.LABEL.MENU_NEW }}</span>
+          </button>
+          <button mat-menu-item
+                  class="btn-delete"
+                  *ngIf="showActionDeleteAll"
+                  [disabled]="disabledButtonDeleteAll()"
+                  (click)="confirmDeleteAllItems()">
+            <mat-icon>{{ appConst.TABLE.ICON.MENU_DELETE_ALL }}</mat-icon>
+            <span>{{ appConst.TABLE.LABEL.MENU_DELETE_ALL }}</span>
+          </button>
+          <div *ngIf="showReports()" class="menu-items-reports">
+            <mat-divider></mat-divider>
+            <button mat-menu-item [matMenuTriggerFor]="menuReports" aria-label="menu reports">
+              <mat-icon aria-hidden="false">{{ appConst.TABLE.ICON.MENU_REPORT }}</mat-icon>
+              <span>{{ appConst.TABLE.LABEL.MENU_REPORT }}</span>
+            </button>
+            <mat-menu #menuReports="matMenu">
+              <button mat-menu-item
+                      *ngIf="showActionExportPdf"
+                      (click)="exportToPdf()">
+                <mat-icon aria-hidden="false">{{ appConst.TABLE.ICON.MENU_EXPORT_PDF }}</mat-icon>
+                <span>{{ appConst.TABLE.LABEL.MENU_EXPORT_PDF }}</span>
+              </button>
+              <button mat-menu-item
+                      *ngIf="showActionExportCsv"
+                      (click)="exportToCsv()">
+                <mat-icon>{{ appConst.TABLE.ICON.MENU_EXPORT_CSV }}</mat-icon>
+                <span>{{ appConst.TABLE.LABEL.MENU_EXPORT_CSV }}</span>
+              </button>
+            </mat-menu>
+          </div>
+        </mat-menu>
+      </div>
+    </div>
+    <div class="search-content">
+      <mat-form-field *ngIf="showInputFilter" class="data-table-component-input-search">
+        <button mat-icon-button matPrefix (click)="clearInputFilter()" [matTooltip]="appConst.TABLE.TOOLTIP.CLEAR">
+          <mat-icon aria-hidden="false">{{ appConst.TABLE.ICON.CLOSE }}</mat-icon>
+        </button>
+        <input matInput
+               [placeholder]="appConst.PLACEHOLDERS.FILTER"
+               [(ngModel)]="inputFilter"
+               (keyup.enter)="filterData()"
+        />
+        <button mat-icon-button matSuffix (click)="filterData()" [matTooltip]="appConst.TABLE.TOOLTIP.FILTER">
+          <mat-icon aria-hidden="false">{{ appConst.TABLE.ICON.FILTER }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="table-responsive" [style]="applyMaxHeight()">
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort class="data-table-component">
+      <ng-container *ngFor="let column of dataColumns" [matColumnDef]="column.key">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column.title }}</th>
+        <td mat-cell *matCellDef="let element"> {{ element[column.key] }}</td>
+      </ng-container>
+
+      <ng-container *matNoDataRow>
+        <tr class="data-not-found">
+          <td [attr.colspan]="displayedColumns.length">
+            <div class="text-center">
+              <div>{{ appConst.TABLE.LABEL.DATA_NOT_FOUND }}</div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+
+      <ng-container matColumnDef="checkbox-column">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            class="ckb-all"
+            [disabled]="disabledHeaderCheckbox()"
+            [checked]="allItemsSelected"
+            [indeterminate]="indeterminate"
+            (change)="toggleItemsSelectedAll($event)">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox
+            class="ckb"
+            [checked]="itemsSelected.includes(element)"
+            (change)="toggleItemSelected(element, $event)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+          [class.detailed-row]="isExpandedElement(element)?'detailed-row':''"></tr>
+
+      <tr mat-row *matRowDef="let element; columns: ['show-details'];"
+          [@expansion-effect]="isExpandedElement(element)?'show':'hide'"></tr>
+      <ng-container matColumnDef="show-details">
+        <tr class="expanded-row">
+          <td *matCellDef="let element;" [attr.colspan]="displayedColumns.length">
+            <div class="expanded-content" [@fade-effect]="isExpandedElement(element)?'fadeIn':'fadeOut'">
+              <app-item-details-table
+                [maxHeight]="maxHeightItemDetails"
+                [dataColumns]="itemDetailsColumns"
+                [dataTable]="itemDetailsTable"
+                [showSearch]="showInputSearchItemDetails"
+                [showPagination]="showPaginationItemDetails">
+              </app-item-details-table>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell class="table-col-actions" *matHeaderCellDef> {{ appConst.TABLE.LABEL.ACTION_COLUMN }}</th>
+        <td mat-cell class="table-col-button-actions" *matCellDef="let element">
+          <div class="actions-content">
+            <button *ngIf="showActionDetails" mat-icon-button class="btn-details" (click)="toggleDetail(element)"
+                    [matTooltip]="appConst.TABLE.TOOLTIP.DETAILS">
+              <mat-icon aria-hidden="false">
+                {{ expandedElement === element ? appConst.TABLE.ICON.EXPAND_LESS : appConst.TABLE.ICON.EXPAND_MORE }}
+              </mat-icon>
+            </button>
+
+            <button mat-icon-button
+                    [matTooltip]="appConst.TABLE.TOOLTIP.MENU"
+                    [matMenuTriggerFor]="menuRow"
+                    aria-label="menu row">
+              <mat-icon aria-hidden="false">{{ appConst.TABLE.ICON.MENU_OPTION }}</mat-icon>
+            </button>
+            <mat-menu #menuRow="matMenu">
+              <button mat-menu-item
+                      class="btn-edit"
+                      *ngIf="showActionEdit"
+                      (click)="editItem(element)">
+                <mat-icon aria-hidden="false">{{ appConst.TABLE.ICON.EDIT }}</mat-icon>
+                <span>{{ appConst.TABLE.LABEL.MENU_EDIT }}</span>
+              </button>
+              <button mat-menu-item
+                      class="btn-delete"
+                      *ngIf="showActionDelete"
+                      (click)="confirmDeleteItem(element)">
+                <mat-icon>{{ appConst.TABLE.ICON.DELETE }}</mat-icon>
+                <span>{{ appConst.TABLE.LABEL.MENU_DELETE }}</span>
+              </button>
+            </mat-menu>
+          </div>
+        </td>
+      </ng-container>
+    </table>
+
+  </div>
+  <div class="data-table-pagination"
+       *ngIf="showPagination">
+    <mat-paginator (page)="pageChange($event)"
+                   [length]="dataSourceLength"
+                   [pageSize]="pageSize"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="pageSizeOptions"
+                   showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

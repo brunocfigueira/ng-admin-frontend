@@ -1,0 +1,34 @@
+<div>
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Learn how to use project resources</mat-card-title>
+        <mat-card-subtitle>
+          In the technical support section you have a brief description of how to use the components and services common to every project in a quick and practical way.
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="mt-10">
+          <button mat-stroked-button routerLink="/support">See More</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="mt-10">
+    <mat-grid-list cols="{{dashboards.length}}" rowHeight="200px" gutterSize="16">
+      <mat-grid-tile *ngFor="let item of dashboards">
+        <mat-card appearance="outlined" [style]="'background-color:'+item.backgroundColor" class="custom-card">
+          <mat-card-header>
+            <mat-icon mat-card-avatar>{{ item.icon }}</mat-icon>
+            <mat-card-title>{{ item.title }}</mat-card-title>
+            <mat-card-subtitle>{{ item.value }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ item.description }}</p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
+

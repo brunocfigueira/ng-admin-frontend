@@ -1,0 +1,105 @@
+<p>Use this service within your component to obtain information defined in the route.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+        <code>
+          app.routes.ts
+
+          export const routes: Routes = &#91;
+            &lbrace;
+              path: '',
+              component: MainComponent,
+              children: &#91;
+                &lbrace;path: '', redirectTo: '/home', pathMatch: 'full'&rbrace;,
+                &lbrace;
+                  path: 'home', component: HomeComponent,
+                  data: &lbrace;
+                    title: 'Home',
+                    subtitle: 'Dashboard',
+                    layout: 'expanded'
+                  &rbrace;
+                &rbrace;,
+                &lbrace;
+                  path: 'about',
+                  component: AboutComponent,
+                  data: &lbrace;
+                    title: 'About',
+                    subtitle: 'Subtitle About'
+                  &rbrace;
+                &rbrace;,
+                &lbrace;
+                  path: 'support',
+                  component: SupportComponent,
+                  data: &lbrace;
+                    title: 'Technical Suport',
+                    subtitle: 'How use resources into project',
+                    myPropertyDefined: 'A any value'
+                  &rbrace;
+                &rbrace;,
+              &#93;,
+            &rbrace;,
+          &#93;;
+        </code>
+      </pre>
+      <pre>
+        <code>
+           export class YourComponent implements OnInit &lbrace;
+
+            yourTitle = '';
+            yourSubtitle = '';
+            yourCssClass = '';
+            yourDynamicValue = '';
+
+            constructor(private routeDataService: RouteDataService) &lbrace;&rbrace;
+
+            ngOnInit() &lbrace;
+              this.routeDataService.title$.subscribe((title) => (this.yourTitle = title));
+              this.routeDataService.subtitle$.subscribe((subtitle) => (this.yourSubtitle = subtitle));
+              this.routeDataService.layout$.subscribe((layout) => (this.yourCssClass = layout));
+              this.yourDynamicValue =  this.routeDataService.getValue('myPropertyDefined')
+            &rbrace;
+          &rbrace;
+        </code>
+      </pre>
+</div>
+<section>
+  <p><b>Examples</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show current title"
+      (onClick)="onClickButtonRoutes(1)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show current subtitle"
+      (onClick)="onClickButtonRoutes(2)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show current cssClass"
+      (onClick)="onClickButtonRoutes(3)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show current object data"
+      (onClick)="onClickButtonRoutes(4)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show specific value"
+      (onClick)="onClickButtonRoutes(5)"
+    ></app-action-button>
+  </div>
+</section>
+<section>
+  <p><b>Results</b></p>
+  <div class="display-results">
+    <div>{{ routeDataValue | json }}</div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+@use '@angular/material' as mat;
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+:root {
+  @include mat.tabs-overrides((
+    active-indicator-color: var(--app-primary-dark-color),
+    active-label-text-color: var(--app-primary-dark-color),
+    active-focus-indicator-color: var(--app-primary-dark-color),
+    active-focus-label-text-color: var(--app-primary-dark-color),
+    active-hover-indicator-color: var(--app-primary-dark-color),
+    pagination-icon-color: var(--app-primary-dark-color),
+    active-ripple-color: var(--app-primary-dark-color),
+  ));
+
+  @include mat.checkbox-overrides((
+    selected-focus-icon-color: var(--app-primary-color),
+    selected-hover-icon-color: var(--app-primary-color),
+    selected-focus-state-layer-color: var(--app-primary-color),
+    selected-icon-color: var(--app-primary-color),
+    selected-hover-state-layer-color: var(--app-primary-color),
+    selected-pressed-state-layer-color: var(--app-primary-color),
+    unselected-pressed-state-layer-color: var(--app-primary-color),
+  ));
+
+  @include mat.form-field-overrides((
+    filled-caret-color: var(--app-primary-dark-color),
+    filled-hover-active-indicator-color: var(--app-primary-dark-color),
+    filled-focus-active-indicator-color: var(--app-primary-dark-color),
+    filled-hover-label-text-color: var(--app-primary-dark-color),
+    filled-focus-label-text-color: var(--app-primary-dark-color),
+    //
+    outlined-caret-color: var(--app-primary-dark-color),
+    outlined-focus-outline-color: var(--app-primary-dark-color),
+    outlined-focus-label-text-color: var(--app-primary-dark-color),
+    outlined-hover-label-text-color: var(--app-primary-dark-color),
+    outlined-hover-outline-color: var(--app-primary-dark-color),
+    //
+    focus-select-arrow-color: var(--app-primary-dark-color),
+    enabled-select-arrow-color: var(--app-primary-dark-color),
+    select-option-text-color: var(--app-primary-dark-color),
+    state-layer-color: var(--app-primary-dark-color),
+  ));
+
+  @include mat.select-overrides((
+    enabled-arrow-color: var(--app-primary-dark-color),
+    focused-arrow-color: var(--app-primary-dark-color),
+  ));
+
+  @include mat.menu-overrides((
+    // item-label-text-color: var(--app-primary-dark-color),
+    // item-focus-state-layer-color: var(--app-primary-dark-color),
+  ));
+}
+

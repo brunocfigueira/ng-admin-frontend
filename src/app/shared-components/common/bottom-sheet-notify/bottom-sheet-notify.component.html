@@ -1,0 +1,29 @@
+<mat-card class="notify-component">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="notify-title">
+        <mat-icon aria-hidden="false">{{ appConst.BOTTOM_SHEET_NOTIFY.ICON.TITLE }}</mat-icon>
+        <span class="text-upper">{{ appConst.BOTTOM_SHEET_NOTIFY.LABEL.TITLE }}</span>
+      </div>
+    </mat-card-title>
+    <mat-card-subtitle>{{ appConst.BOTTOM_SHEET_NOTIFY.LABEL.SUBTITLE }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="notify-content">
+    <mat-nav-list *ngIf="notifications.length > 0; else emptyList">
+      <mat-list-item mat-list-item
+                     *ngFor="let item of notifications"
+                     (click)="openLink($event)"
+                     [routerLink]="item.link">
+        {{ item.text }}
+      </mat-list-item>
+    </mat-nav-list>
+    <ng-template #emptyList>
+      <mat-nav-list>
+        <mat-list-item mat-list-item>
+          {{ appConst.BOTTOM_SHEET_NOTIFY.LABEL.EMPTY_LIST }}
+        </mat-list-item>
+      </mat-nav-list>
+    </ng-template>
+  </mat-card-content>
+</mat-card>
+

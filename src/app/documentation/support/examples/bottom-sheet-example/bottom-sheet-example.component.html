@@ -1,0 +1,65 @@
+<p>See how ‘BottomSheetNotifyComponent’ is used to display notification content using the service.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+  <pre>
+        <code>
+          // Create a component to display the desired content in the BottomSheet and implement its functionalities
+
+          MyDisplayContent.component.html
+          ------------------------------------------------------------------------
+          &lt;mat-nav-list&gt;
+              &lt;mat-list-item mat-list-item
+                             *ngFor=&quot;let data of arrayData&quot;
+                             (click)=&quot;openLink($event)&quot;
+                             [routerLink]=&quot;data.link&quot;&gt;
+                    &lbrace; &lbrace; data.text &rbrace; &rbrace;
+                    &lt;/mat-list-item&gt;
+          &lt;/mat-nav-list&gt;
+
+          MyDisplayContent.component.ts
+          ------------------------------------------------------------------------
+          export class MyDisplayContentComponent &lbrace;
+          private _bottomSheetRef =
+              inject&lt;MatBottomSheetRef&lt;MyDisplayContentComponent&gt;&gt;(MatBottomSheetRef);
+
+              constructor(&#64;Inject(MAT_BOTTOM_SHEET_DATA) public arrayData: any[]) &lbrace;
+              &rbrace;
+
+              openLink(event: MouseEvent): void  &lbrace;
+                  this._bottomSheetRef.dismiss();
+                  event.preventDefault();
+               &rbrace;
+          &rbrace;
+          </code>
+      </pre>
+  <pre>
+        <code>
+          //using the service to display the content
+
+          import BottomSheetService from '../../../../services/common/bottom-sheet.service';
+
+          export class YourComponent implements OnInit &lbrace
+            constructor(private bottomSheetService: BottomSheetService) &lbrace;&rbrace;
+            ngOnInit(): void &lbrace;
+              const arrayData = [&lbrace;
+                text: 'Some Text',
+                link: '/internalLink'
+              &rbrace;]
+              this.bottomSheetService.open(MyDisplayContentComponent, arrayData)
+            &rbrace;
+          &rbrace;
+        </code>
+      </pre>
+</div>
+
+<section>
+  <p><b>Example</b></p>
+  <app-action-button
+    [showToolTip]="true"
+    toolTipButton="Show Notification"
+    [showLabel]="true"
+    action="custom"
+    label="Show Notification"
+    (onClick)="showBottomSheet()"
+  ></app-action-button>
+</section>

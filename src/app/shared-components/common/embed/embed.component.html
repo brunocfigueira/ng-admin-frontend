@@ -1,0 +1,36 @@
+@if (displayHeader) {
+  <mat-card class="embed-component" appearance="outlined">
+    <mat-card-header class="display-block" *ngIf="showHeader()">
+      <mat-card-title class="text-upper" *ngIf="showTitle()">
+        <div class="display-flex-center-space-between">
+          <span>{{ title }}</span>
+          <mat-icon aria-hidden="false">{{ appConst.EMBED.ICON.HEADER_TITLE }}</mat-icon>
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle class="text-left" *ngIf="showSubtitle()">{{ subtitle }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="embed-container">
+        <embed #embedComponent
+               [title]="title"
+               (loadstart)="eventLoadStart($event)"
+               (loadeddata)="eventLoadedData($event)"
+               [ngStyle]="applyStyle()"
+               [align]="align">
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+} @else {
+  <div class="embed-container">
+    <embed #embedComponent
+           [title]="title"
+           [ngStyle]="applyStyle()"
+           [align]="align">
+
+  </div>
+}
+
+
+
+

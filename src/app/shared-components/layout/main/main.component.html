@@ -1,0 +1,60 @@
+<app-header [sidenavLeft]="sidenavLeft" [sidenavRight]="sidenavRight"></app-header>
+
+<mat-sidenav-container>
+  <mat-sidenav class="sidenav-left" #sidenavLeft mode="side" [opened]="true">
+    <mat-toolbar class="pl-25">
+      <mat-icon aria-hidden="false">{{ appConst.LAYOUT.MAIN.ICON.SIDENAV_LEFT }}</mat-icon>
+      <span class="icon-spacer">{{ appConst.LAYOUT.MAIN.LABEL.SIDENAV_LEFT }}</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item [routerLink]="appConst.ENTRY_ROUTE">
+        <div class="sidenav-menu">
+          <mat-icon>{{ appConst.LAYOUT.MAIN.ICON.MAIN_ACCESS }}</mat-icon>
+          <span>{{ appConst.LAYOUT.MAIN.LABEL.MAIN_ACCESS }}</span>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+    <app-sidenav-left></app-sidenav-left>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <mat-toolbar-row class="pr-10">
+        <mat-icon aria-hidden="false">{{ appConst.LAYOUT.MAIN.ICON.SUBHEADER_LEFT }}</mat-icon>
+        <span class="icon-spacer">{{ mainTitle }}</span>
+        <span class="main-icon-spacer"></span>
+        <mat-icon aria-hidden="false">{{ appConst.LAYOUT.MAIN.ICON.SUBHEADER_RIGHT }}</mat-icon>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div [class]="adjustLayout()">
+      <mat-card class="main-card" [ngClass]="layoutClass">
+        <mat-card-header class="card-header">
+          <mat-card-title>{{ mainSubtitle }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <router-outlet></router-outlet>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+
+  <mat-sidenav class="sidenav-right"
+               #sidenavRight
+               mode="over"
+               position="end"
+               [opened]="false">
+    <mat-toolbar class="sidenav-right-header display-flex-center">
+      <span class="display-flex-center">
+        <mat-icon aria-hidden="false">{{ appConst.LAYOUT.MAIN.ICON.SIDENAV_RIGHT }}</mat-icon>
+        <span class="icon-spacer">{{ appConst.LAYOUT.MAIN.LABEL.SIDENAV_RIGHT }}</span>
+      </span>
+      <button mat-icon-button (click)="closeSidenavRight()">
+        <mat-icon aria-hidden="false">{{ appConst.LAYOUT.MAIN.ICON.SIDENAV_RIGHT_CLOSE }}</mat-icon>
+      </button>
+    </mat-toolbar>
+    <app-sidenav-right></app-sidenav-right>
+  </mat-sidenav>
+</mat-sidenav-container>
+
+<app-footer></app-footer>

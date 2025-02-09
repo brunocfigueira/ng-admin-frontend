@@ -1,0 +1,105 @@
+<p>See how the 'IframeComponent' is used to display contents HTML or external page.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+        <code>
+          your.component.html
+
+          &lt;app-iframe
+                [title]=&#34;title&#34;
+                [subtitle]=&#34;subtitle&#34;
+                [src]=&#34;url&#34;
+                height=&#34;100vh&#34;
+                width=&#34;100%&#34;
+                scrolling=&#34;auto&#34;
+                iframeName=&#34;iframeExample&#34;
+                loading=&#34;eager&#34;
+                [allowFullscreen]=&#34;true&#34;
+                [displayHeader]=&#34;true&#34;
+          &gt;&lt;/app-iframe&gt;
+
+        </code>
+      </pre>
+</div>
+
+<section>
+  <p><b>Examples</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Content Page"
+      [showIcon]="true"
+      icon="link"
+      [showLabel]="true"
+      action="custom"
+      label="Show Content Page"
+      (onClick)="eventShowIframeWithUrl()"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Content HTML"
+      [showIcon]="true"
+      icon="code"
+      [showLabel]="true"
+      action="custom"
+      label="Show Content HTML"
+      (onClick)="eventShowIframeWithHtml()"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Content JSON"
+      [showIcon]="true"
+      icon="code"
+      [showLabel]="true"
+      action="custom"
+      label="Show Content JSON"
+      (onClick)="eventShowIframeWithJson()"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Content XML"
+      [showIcon]="true"
+      icon="code"
+      [showLabel]="true"
+      action="custom"
+      label="Show Content XML"
+      (onClick)="eventShowIframeWithXml()"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Content PDF"
+      [showIcon]="true"
+      icon="picture_as_pdf"
+      [showLabel]="true"
+      action="custom"
+      label="Show Content PDF"
+      (onClick)="eventShowIframeWithDocPdf()"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Content Embed Video"
+      [showIcon]="true"
+      icon="smart_display"
+      [showLabel]="true"
+      action="custom"
+      label="Show Content Embed Video"
+      (onClick)="eventShowIframeWithEmbedVideo()"
+    ></app-action-button>
+  </div>
+
+  <app-iframe
+    [title]="title"
+    [subtitle]="subtitle"
+    [src]="src"
+    [srcdoc]="srcdoc"
+    [allow]="allow"
+    height="80vh"
+    width="100%"
+    scrolling="auto"
+    iframeName="iframeExample"
+    loading="lazy"
+    [allowFullscreen]="true"
+    [displayHeader]="false"
+  ></app-iframe>
+
+</section>

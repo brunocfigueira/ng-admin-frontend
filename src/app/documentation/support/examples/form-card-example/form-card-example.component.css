@@ -1,0 +1,8 @@
+.form-example{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+section{
+  width: 50%;
+}

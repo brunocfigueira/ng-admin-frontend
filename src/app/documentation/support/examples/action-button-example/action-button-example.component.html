@@ -1,0 +1,215 @@
+<p>See in this component how the 'ActionButtonComponent' is used to display action buttons.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+        <code>
+          your.component.html
+
+          &lt;app-action-button
+                [showToolTip]=&#34;true&#34;
+                [showIcon]=&#34;true&#34;
+                [showLabel]=&#34;true&#34;
+                actionType=&#34;search&#34;
+          &gt;&lt;/app-action-button&gt;
+        </code>
+      </pre>
+</div>
+
+<section>
+  <p><b>Full attributes</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="yes"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="no"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="search"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="new"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="save"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="update"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="send"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="cancel"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="clear"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="true"
+      action="delete"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Custom"
+      [showIcon]="true"
+      icon="cloud_upload"
+      [showLabel]="true"
+      action="custom"
+      label="Custom Button"
+    ></app-action-button>
+  </div>
+</section>
+<section>
+  <p><b>Only Label</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showLabel]="true"
+      action="yes"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="no"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="search"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="new"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="save"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="update"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="send"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="cancel"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="clear"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="delete"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Custom Button"
+    ></app-action-button>
+  </div>
+</section>
+
+<section>
+  <p><b>Only Icon</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="yes"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="no"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="search"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="new"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="save"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="update"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="send"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="cancel"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="delete"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      [showIcon]="true"
+      [showLabel]="false"
+      action="clear"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Custom"
+      [showIcon]="true"
+      [showLabel]="false"
+      icon="cloud_upload"
+      action="custom"
+    ></app-action-button>
+  </div>
+</section>

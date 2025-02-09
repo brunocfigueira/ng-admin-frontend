@@ -1,0 +1,46 @@
+<p>See how the 'VideoComponent' is used to display content.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+        <code>
+          your.component.html
+        </code>
+      </pre>
+</div>
+
+<section>
+  <p><b>Examples</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Only Video"
+      [showIcon]="true"
+      icon="videocam"
+      [showLabel]="true"
+      action="custom"
+      label="Show Only Video"
+      (onClick)="eventShowOnlyVideo()"
+    ></app-action-button>
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Playlist Video"
+      [showIcon]="true"
+      icon="videocam"
+      [showLabel]="true"
+      action="custom"
+      label="Show Playlist Video"
+      (onClick)="eventShowPlaylistVideo()"
+    ></app-action-button>
+  </div>
+  <app-video
+    [displayHeader]="false"
+    [title]="title"
+    [subtitle]="subtitle"
+    [src]="src"
+    [type]="type"
+    [poster]="poster"
+    [isPlaylist]="isPlaylist"
+    [videoPlaylist]="videos"
+    videoName="videoExample"
+  ></app-video>
+</section>

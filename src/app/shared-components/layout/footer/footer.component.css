@@ -1,0 +1,22 @@
+.footer-sticky {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.footer {
+  color: var(--app-primary-text-light-color);
+  background-color: var(--app-primary-color) !important;
+}
+
+.footer-content {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.size {
+  font-size: 12px !important;
+}

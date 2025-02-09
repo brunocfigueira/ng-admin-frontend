@@ -1,0 +1,124 @@
+<p>See how 'AudioComponent' is used to display audio content.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+    <pre>
+      <code>
+        import &#123;AudioComponent&#125; from &#39;../../../../shared-components/common/audio/audio.component&#39;;
+        import &#123;AudioAttributesSourcesType, AudioType&#125; from &#39;../../../../shared-components/types/audio-attribute-type&#39;;
+
+        export class YourComponent implements OnInit &#123;
+          protected title: string = &#39;&#39;;
+          protected subtitle: string = &#39;&#39;;
+          protected src: string = &#39;&#39;;
+          protected audios: AudioAttributesSourcesType[] = [];
+          protected type: AudioType = &#39;audio/mpeg&#39;;
+          protected isPlaylist = false;
+
+          ngOnInit() &#123;
+            this.loadDefaultValues();
+          &#125;
+
+          private loadDefaultValues(): void &#123;
+            this.title = &#39;Content Only Play&#39;;
+            this.subtitle = &#39;Presentation of the content of an external song within the audio tag&#39;;
+            this.src = &#39;https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3&#39;;
+            this.type = &#39;audio/mpeg&#39;;
+            this.audios = [];
+            this.isPlaylist = false;
+          &#125;
+
+          protected eventShowOnlyPlay(): void &#123;
+            this.loadDefaultValues();
+          &#125;
+
+          protected eventShowPlaylist(): void &#123;
+            this.title = &#39;Content Playlist&#39;;
+            this.subtitle = &#39;Presentation of the content of an external list song within the audio tag&#39;;
+            this.src = &#39;&#39;;
+            this.type = undefined;
+
+            this.audios.push(&#123;
+              name: &#39;Audio 1&#39;,
+              description: &#39;Description audio 1&#39;,
+              src: &#39;https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3&#39;,
+              type: &#39;audio/mpeg&#39;
+            &#125;);
+            this.audios.push(&#123;
+              name: &#39;Audio 2&#39;,
+              description: &#39;Description audio 2&#39;,
+              src: &#39;https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3&#39;,
+              type: &#39;audio/mpeg&#39;
+            &#125;);
+            this.audios.push(&#123;
+              name: &#39;Audio 3&#39;,
+              description: &#39;Description audio 3&#39;,
+              src: &#39;https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3&#39;,
+              type: &#39;audio/mpeg&#39;
+            &#125;);
+
+            this.isPlaylist = true;
+          &#125;
+        &#125;
+      </code>
+    </pre>
+
+    <pre>
+        <code>
+          your.component.html
+
+          &lt;app-audio
+              [displayHeader]=&#34;false&#34;
+              [title]=&#34;title&#34;
+              [subtitle]=&#34;subtitle&#34;
+              [isPlaylist]=&#34;isPlaylist&#34;
+              [showPlaylist]=&#34;true&#34;
+              [audioPlaylist]=&#34;audios&#34;
+              namePlaylist=&#34;My favourites playlist&#34;
+              [src]=&#34;src&#34;
+              [type]=&#34;type&#34;
+              audioName=&#34;audioExample&#34;
+          &gt;&lt;/app-audio&gt;
+
+        </code>
+      </pre>
+</div>
+
+<section>
+  <p><b>Examples</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Only Play"
+      [showIcon]="true"
+      icon="audio_file"
+      [showLabel]="true"
+      action="custom"
+      label="Show Only Play"
+      (onClick)="eventShowOnlyPlay()"
+    ></app-action-button>
+
+    <app-action-button
+      [showToolTip]="true"
+      toolTipButton="Show Playlist"
+      [showIcon]="true"
+      icon="audio_file"
+      [showLabel]="true"
+      action="custom"
+      label="Show Playlist"
+      (onClick)="eventShowPlaylist()"
+    ></app-action-button>
+  </div>
+  <app-audio
+    [displayHeader]="false"
+    [title]="title"
+    [subtitle]="subtitle"
+    [isPlaylist]="isPlaylist"
+    [showPlaylist]="true"
+    [audioPlaylist]="audios"
+
+    namePlaylist="My favourites playlist"
+    [src]="src"
+    [type]="type"
+    audioName="audioExample"
+  ></app-audio>
+</section>

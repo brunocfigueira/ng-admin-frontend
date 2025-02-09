@@ -1,0 +1,50 @@
+<mat-toolbar class="header header-fixed toolbar-background-color">
+  <mat-toolbar-row>
+    <button mat-icon-button
+            (click)="toggleSidenavLeft()"
+            [matTooltip]="appConst.LAYOUT.HEADER.TOOLTIP.OPEN_CLOSE_MENU">
+      <mat-icon aria-hidden="false">{{ appConst.LAYOUT.HEADER.ICON.OPEN_CLOSE_MENU }}</mat-icon>
+    </button>
+    <span class="icon-spacer text-upper">{{ appConst.LAYOUT.HEADER.LABEL.TITLE }}</span>
+
+    <span class="header-icon-spacer"></span>
+    <button class="icon-spacer"
+            mat-icon-button
+            (click)="openNotifications()"
+            [matTooltip]="appConst.LAYOUT.HEADER.TOOLTIP.NOTIFY">
+      <mat-icon aria-hidden="false">{{ appConst.LAYOUT.HEADER.ICON.NOTIFY }}</mat-icon>
+    </button>
+
+    <button class="icon-spacer"
+            mat-icon-button
+            [matTooltip]="appConst.LAYOUT.HEADER.TOOLTIP.SUPPORT"
+            routerLink="/support">
+      <mat-icon aria-hidden="false">{{ appConst.LAYOUT.HEADER.ICON.SUPPORT }}</mat-icon>
+    </button>
+
+    <button class="icon-spacer"
+            mat-icon-button
+            [matTooltip]="appConst.LAYOUT.HEADER.TOOLTIP.ACCOUNT">
+      <mat-icon aria-hidden="false">{{ appConst.LAYOUT.HEADER.ICON.ACCOUNT }}</mat-icon>
+    </button>
+    <button
+      class="icon-spacer"
+      mat-icon-button
+      (click)="eventExit()"
+      [matTooltip]="appConst.LAYOUT.HEADER.TOOLTIP.EXIT">
+      <mat-icon aria-hidden="false">{{ appConst.LAYOUT.HEADER.ICON.EXIT }}</mat-icon>
+    </button>
+    <button class="icon-spacer"
+            mat-icon-button [matMenuTriggerFor]="menu"
+            [matTooltip]="appConst.LAYOUT.HEADER.TOOLTIP.OPTIONS">
+      <mat-icon aria-hidden="false">{{ appConst.LAYOUT.HEADER.ICON.OPTIONS }}</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item
+              (click)="toggleSidenavRight()">
+        <mat-icon>{{ appConst.LAYOUT.HEADER.ICON.VIEW_SIDENAV_RIGHT }}</mat-icon>
+        <span>{{ appConst.LAYOUT.HEADER.LABEL.VIEW_SIDENAV_RIGHT }}</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

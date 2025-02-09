@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="8642445555713453888" datatype="html">
+        <source>Primeira página</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/common/data-table/data-table.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4743002849260529978" datatype="html">
+        <source>Itens por página:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/common/data-table/data-table.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6784758141439994527" datatype="html">
+        <source>Última página</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/common/data-table/data-table.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="125401261339317585" datatype="html">
+        <source>Página 1 de 1</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/common/data-table/data-table.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6221116945238325541" datatype="html">
+        <source>Página <x id="PH" equiv-text="page + 1"/> de <x id="PH_1" equiv-text="amountPages"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/common/data-table/data-table.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

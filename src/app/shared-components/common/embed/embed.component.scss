@@ -1,0 +1,59 @@
+.embed-component {
+  box-shadow: none !important;
+  border: 1px solid var(--app-primary-text-light-color) !important;
+}
+
+.embed-component mat-card-header,
+.embed-component mat-card-header mat-card-subtitle {
+  background-color: var(--app-primary-color);
+  color: var(--app-primary-text-light-color);
+}
+
+.embed-component mat-card-header {
+  border-radius: 5px 5px 0 0 !important;
+  padding: 15px;
+}
+
+.embed-component mat-card-content {
+  padding: 0 !important;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-flex-center-space-between {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.embed-container {
+  width: 100%;
+  overflow: auto;
+}
+
+embed {
+  border: none;
+}
+.embed-audio{
+  padding: 10px;
+}
+.embed-container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.embed-container::-webkit-scrollbar-track {
+  background: var(--app-scrollbar-background-color);
+  border-radius: 2px;
+}
+
+.embed-container::-webkit-scrollbar-thumb {
+  background: var(--app-scrollbar-thumb-background-color);
+  border-radius: 2px;
+}
+
+.embed-container::-webkit-scrollbar-thumb:hover {
+  background: var(--app-scrollbar-hover-background-color);
+}

@@ -1,0 +1,51 @@
+<p>See in this component how 'output.service.ts' is used to display personalized or pre-defined messages.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+        <code>
+          import OutputService from '../../services/output.service';
+
+          export class YourComponent implements OnInit &lbrace;
+            constructor(private outputService: OutputService) &lbrace;&rbrace;
+            ngOnInit(): void &lbrace;
+              this.outputService.showShortMessageSuccess('Only Test');
+            &rbrace;
+          &rbrace;
+        </code>
+      </pre>
+</div>
+<section>
+  <p><b>Examples</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Message Success"
+      (onClick)="onClickButtonShortMessage(1)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Message Error"
+      (onClick)="onClickButtonShortMessage(2)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Message Warning"
+      (onClick)="onClickButtonShortMessage(3)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Message Info"
+      (onClick)="onClickButtonShortMessage(4)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Message Default"
+      (onClick)="onClickButtonShortMessage(5)"
+    ></app-action-button>
+  </div>
+</section>

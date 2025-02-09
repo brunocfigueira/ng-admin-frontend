@@ -1,0 +1,237 @@
+<p>See in this component how 'TabsComponent' is used to display sessions with different content using tabs. Can be used
+  with tables for CRUD events.</p>
+<p>Explore all possible component attributes.</p>
+<p><b>Simple Use</b></p>
+<div>
+      <pre>
+        <code>
+            import TabsComponent from &#39;../../../../shared/common/tabs/tabs.component&#39;;
+            export class YourComponent implements &#123;
+
+                &#64;ViewChild(&#39;firstTabRef&#39;, &#123;static: true&#125;) firstTabRef!: TemplateRef&lt;any&gt;;
+                &#64;ViewChild(&#39;secondTabRef&#39;, &#123;static: true&#125;) secondTabRef!: TemplateRef&lt;any&gt;;
+                &#64;ViewChild(&#39;thirdTabRef&#39;, &#123;static: true&#125;) thirdTabRef!: TemplateRef&lt;any&gt;;
+                protected simpleTabs: Tab[] = [
+                    &#123;
+                        name: &#39;First Tab&#39;,
+                        templateContentRef: this.firstTabRef,
+                        allowClose: false
+                    &#125;,
+                    &#123;
+                        name: &#39;Second Tab&#39;,
+                        templateContentRef: this.secondTabRef,
+                        allowClose: false
+                    &#125;,
+                    &#123;
+                        name: &#39;Third Tab&#39;,
+                        templateContentRef: this.thirdTabRef,
+                        allowClose: false
+                    &#125;
+                ];
+            &#125;
+        </code>
+
+      </pre>
+  <pre>
+        <code>
+            your.component.html
+
+            &lt;app-tabs
+              [tabs]="simpleTabs"
+            &gt;
+              &lt;ng-template #firstTabRef&gt;
+                &lt;div&gt;
+                  First tab content
+                &lt;/div&gt;
+              &lt;/ng-template&gt;
+              &lt;ng-template #secondTabRef&gt;
+                &lt;div&gt;
+                  Second tab content
+                &lt;/div&gt;
+              &lt;/ng-template&gt;
+              &lt;ng-template #thirdTabRef&gt;
+                &lt;div&gt;
+                  Third tab content
+                &lt;/div&gt;
+              &lt;/ng-template&gt;
+
+            &lt;/app-tabs&gt;
+        </code>
+      </pre>
+</div>
+<p><b>Example</b></p>
+<section>
+  <app-tabs
+    [tabs]="simpleTabs"
+  >
+    <ng-template #firstTabRef>
+      <div>
+        First tab content
+      </div>
+    </ng-template>
+    <ng-template #secondTabRef>
+      <div>
+        Second tab content
+      </div>
+    </ng-template>
+    <ng-template #thirdTabRef>
+      <div>
+        Third tab content
+      </div>
+    </ng-template>
+
+  </app-tabs>
+</section>
+<br/>
+<br/>
+<p><b>Advanced Use with Data Table</b></p>
+<div>
+      <pre>
+        <code>
+          // all attributes
+          your.component.html
+
+          &lt;app-tabs
+            #tabsRef
+            [alignTabs]=&#39;start&#39;
+            [tabs]=&#39;advancedTabs&#39;
+            [showTabNumber]=&#39;true&#39;
+            [showTabClosingConfirmation]=&#39;true&#39;
+            [selectedTabIndex]=&#39;this.currentTabIndex&#39;
+            (onTabIndexChange)=&#34;eventTabIndexChange($event)&#34;
+            (onCloseTab)=&#34;eventCloseTab($event)&#34;
+        &gt;
+            &lt;ng-template #dataTableRecordsRef&gt;
+              &lt;app-data-table
+                [maxHeight]=&#34;250&#34;
+                [isHttpRequest]=&#34;false&#34;
+                [showInputFilter]=&#34;true&#34;
+                [dataColumns]=&#34;dataColumns&#34;
+                [dataTable]=&#34;dataTable&#34;
+                [showPagination]=&#34;true&#34;
+                [showActionCreate]=&#34;true&#34;
+                (onCreate)=&#34;eventNewItem()&#34;
+                [showActionEdit]=&#34;true&#34;
+                (onEdit)=&#34;eventEditRecord($event)&#34;
+              &gt;&lt;/app-data-table&gt;
+            &lt;/ng-template&gt;
+            &lt;ng-template #createItemRef&gt;
+              &lt;mat-card appearance=&#34;outlined&#34;&gt;
+                &lt;mat-card-header&gt;
+                  &lt;mat-card-title&gt;Form New Item&lt;/mat-card-title&gt;
+                &lt;/mat-card-header&gt;
+                &lt;mat-card-content&gt;
+                  &lt;div&gt;
+                    This should contain the form for creating a new item
+                  &lt;/div&gt;
+                &lt;/mat-card-content&gt;
+                &lt;mat-card-footer&gt;
+                  &lt;button mat-stroked-button (click)=&#34;createNewRecord()&#34;&gt;
+          {{ appConst.ACTION_BUTTON.LABEL.SAVE }}
+          &lt;/button&gt;
+                &lt;/mat-card-footer&gt;
+              &lt;/mat-card&gt;
+            &lt;/ng-template&gt;
+            &lt;ng-template #updateItemRef&gt;
+              &lt;mat-card appearance=&#34;outlined&#34;&gt;
+                &lt;mat-card-header&gt;
+                  &lt;mat-card-title&gt;Form Edit Item&lt;/mat-card-title&gt;
+                &lt;/mat-card-header&gt;
+                &lt;mat-card-content&gt;
+                  &lt;div&gt;
+                    This should contain the form for editing the selected item
+                  &lt;/div&gt;
+                &lt;/mat-card-content&gt;
+                &lt;mat-card-footer&gt;
+                  &lt;button mat-stroked-button (click)=&#34;updateRecord(objectEditItem)&#34;&gt;
+
+          &lt;/button&gt;
+                &lt;/mat-card-footer&gt;
+              &lt;/mat-card&gt;
+            &lt;/ng-template&gt;
+        &lt;/app-tabs&gt;
+
+        </code>
+      </pre>
+</div>
+<p><b>Example</b></p>
+<section class="table">
+  <app-tabs
+    #tabsRef
+    [alignTabs]="'start'"
+    [tabs]="advancedTabs"
+    [showTabNumber]="true"
+    [showTabClosingConfirmation]="true"
+    [selectedTabIndex]="this.currentTabIndex"
+    (onTabIndexChange)="eventTabIndexChange($event)"
+    (onCloseTab)="eventCloseTab($event)"
+  >
+    <ng-template #dataTableRecordsRef>
+      <app-data-table
+        [maxHeight]="250"
+        [isHttpRequest]="false"
+        [showInputFilter]="true"
+        [dataColumns]="dataColumns"
+        [dataTable]="dataTable"
+        [showPagination]="true"
+        [showActionCreate]="true"
+        (onCreate)="eventNewItem()"
+        [showActionEdit]="true"
+        (onEdit)="eventEditRecord($event)"
+      ></app-data-table>
+    </ng-template>
+    <ng-template #createItemRef>
+      <app-form-card
+        title="Create an Item"
+        subtitle="fill in the details below"
+        alignActionButtons="start"
+        [formContentTemplate]="formContentRef"
+        [actionButtonsTemplate]="actionButtonsRef"
+      >
+        <ng-template #formContentRef>
+          <form class="form-example">
+            <div>
+              This must contain the form fields
+            </div>
+          </form>
+        </ng-template>
+        <ng-template #actionButtonsRef>
+          <app-action-button
+            [showIcon]="true"
+            [showLabel]="true"
+            action="save"
+            (onClick)="createNewRecord($event)"
+          ></app-action-button>
+        </ng-template>
+      </app-form-card>
+    </ng-template>
+    <ng-template #updateItemRef>
+      <app-form-card
+        title="Edit an Item"
+        subtitle="fill in the details below"
+        alignActionButtons="start"
+        [formContentTemplate]="formContentRef"
+        [actionButtonsTemplate]="actionButtonsRef"
+      >
+        <ng-template #formContentRef>
+          <form class="form-example">
+            <div>
+              This should contain the form for editing the selected item
+            </div>
+            <p>
+              {{ objectEditItem | json }}
+            </p>
+          </form>
+        </ng-template>
+        <ng-template #actionButtonsRef>
+          <app-action-button
+            [showIcon]="true"
+            [showLabel]="true"
+            action="update"
+            (onClick)="updateRecord(objectEditItem)"
+          ></app-action-button>
+        </ng-template>
+      </app-form-card>
+    </ng-template>
+  </app-tabs>
+</section>

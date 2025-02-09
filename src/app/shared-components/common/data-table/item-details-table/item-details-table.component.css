@@ -1,0 +1,43 @@
+.item-details-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-detail-title {
+  font-weight: 400;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.item-details-table-header .item-details-table-header-right-content,
+.item-details-table-header .item-details-table-header-left-content,
+.item-details-table-header .item-details-table-header-handles {
+  display: flex;
+  align-items: center;
+}
+
+.item-details-table-header .item-details-table-header-left-content {
+  margin-bottom: 15px;
+  margin-left: 5px;
+}
+
+.flexible-form-field .mat-mdc-text-field-wrapper {
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.item-details-table-header .pagination-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Container principal para limitar a largura */
+.item-details-table-container {
+  width: 100%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+

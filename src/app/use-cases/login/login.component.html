@@ -1,0 +1,42 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <app-form-card
+      class="login-card"
+      [title]="formTitle"
+      [subtitle]="formSubtitle"
+      [formContentTemplate]="formLoginRef"
+      [actionButtonsTemplate]="actionButtonRef"
+    >
+      <ng-template #formLoginRef>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [formControl]="emailControl" placeholder="Digite seu email" />
+          <mat-error *ngIf="emailControl.invalid">
+            {{ getErrorMessage(emailControl) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" [formControl]="passwordControl" placeholder="Digite sua senha" />
+          <mat-error *ngIf="passwordControl.invalid">
+            {{ getErrorMessage(passwordControl) }}
+          </mat-error>
+        </mat-form-field>
+      </ng-template>
+
+      <ng-template #actionButtonRef>
+        <div class="content-actions-login">
+          <app-action-button
+            [disabled]="loginForm.invalid"
+            [showLabel]="true"
+            type="submit"
+            action="custom"
+            label="Enter"
+          ></app-action-button>
+          <a mat-button class="forgot-password-link" (click)="forgotPassword()">Forgot your password?</a>
+        </div>
+      </ng-template>
+    </app-form-card>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header [ngStyle]="{ 'color': data.color,
+                   'background-color': data.backgroundColor }">
+    <mat-card-title>
+      {{ data.title }}
+    </mat-card-title>
+    <button mat-icon-button (click)="onClose()" [matTooltip]="appConst.DIALOG.TOOLTIP.CLOSE_BUTTON">
+      <mat-icon [ngStyle]="{'color': data.color }">
+        {{ appConst.DIALOG.ICON.CLOSE_BUTTON }}
+      </mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content [ngStyle]="{'max-height': data.contentHeight+'px' }">
+    <div [innerHTML]="data.message"></div>
+  </mat-card-content>
+  <mat-card-actions class="dialog-actions">
+    <button
+      [ngStyle]="{ 'color': data.color,
+                   'background-color': data.backgroundColor }"
+      *ngFor="let action of data.actions"
+      mat-raised-button
+      (click)="onAction(action)"
+    >
+      {{ action.label }}
+    </button>
+    <button mat-button (click)="onClose()">{{ appConst.DIALOG.LABEL.CLOSE_BUTTON }}</button>
+  </mat-card-actions>
+</mat-card>
+

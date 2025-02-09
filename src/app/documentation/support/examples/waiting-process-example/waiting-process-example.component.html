@@ -1,0 +1,30 @@
+<p>See in this component how 'Loading.service.ts' is used to display loading in waiting.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+        <code>
+          import LoadingService from '../../services/Loading.service';
+
+          export class YourComponent implements OnInit &lbrace;
+            constructor(private loadingService: LoadingService) &lbrace;&rbrace;
+            ngOnInit(): void &lbrace;
+               this.loadingService.show();
+                setTimeout(() => &lbrace;
+                      this.loadingService.hide();
+                &rbrace;, 5000);
+            &rbrace;
+          &rbrace;
+        </code>
+      </pre>
+</div>
+<section>
+  <p><b>Example</b></p>
+  <div>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show waiting process"
+      (onClick)="onClickButtonLoading()"
+    ></app-action-button>
+  </div>
+</section>

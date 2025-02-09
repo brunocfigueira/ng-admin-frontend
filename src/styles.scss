@@ -1,0 +1,87 @@
+@use '@angular/material/prebuilt-themes/indigo-pink.css';
+@use "theme.scss";
+@use "custom.scss";
+@use "responsive-custom.scss";
+
+:root {
+  // https://paletadecores.com/paleta/20130a/142026/123142/3b657a/e9f0c9/
+  // BASE APPLICATION COLOR PALETTE
+  --app-palette-color-one: #20130a;
+  --app-palette-color-two: #142026;
+  --app-palette-color-three: #123142;
+  --app-palette-color-four: #3b657a;
+  --app-palette-color-five: #e9f0c9;
+
+  // COLOR CONFIGURATION - GENERAL USE
+  --app-primary-color: var(--app-palette-color-four);
+  --app-primary-dark-color: var(--app-palette-color-three);
+  --app-primary-text-light-color: #FFFFFF;
+  --app-primary-text-color: var(--app-palette-color-one);
+  --app-primary-ligth-background-color: #FFFFFF;
+  --app-primary-background-color: #F9F9F9;
+  --app-secondary-background-color: #F5F5F5;
+  --app-primary-border-color: #DDD;
+  --app-primary-checkbox-light-border-color: #FFFFFF;
+
+  // SCROLLBAR
+  --app-scrollbar-background-color: #F4F4F4;
+  --app-scrollbar-thumb-background-color: #DDD;
+  --app-scrollbar-hover-background-color: #b0b0b0;
+
+  // MESSAGE SNACKBAR
+  --app-background-snackbar-success-color: #4caf50;
+  --app-background-snackbar-error-color: #f44336;
+  --app-background-snackbar-warning-color: #ff9800;
+  --app-background-snackbar-info-color: #174580;
+  --app-background-snackbar-default-color: #D9D9DB;
+
+  // TABLE
+  --app-background-table-row-hover-color: var(--app-palette-color-five);
+  --app-background-table-header-background-color: var(--app-primary-dark-color);
+  --app-background-table-header-color: var(--app-primary-text-light-color);
+
+  // TAGS PRE / CODE
+  --app-tag-code-background-color: var(--app-scrollbar-background-color);
+  --app-tag-code-color: #c7254e;
+  --app-tag-pre-background-color: var(--app-primary-background-color);
+  --app-tag-pre-border-color: var(--app-scrollbar-thumb-background-color);
+
+  // BUTTONS
+  --app-tag-button-new-color: var(--app-primary-color);
+  --app-tag-button-edit-color: #174580;
+  --app-tag-button-delete-color: #f44336;
+  --app-tag-button-send-color: #174580;
+
+  // FORM CARD
+  --app-primary-form-card-border-color: var(--app-primary-color);
+  --app-primary-form-card-title-color: var(--app-primary-color);
+
+  // TABS
+  --app-primary-tabs-label-color: var(--app-primary-dark-color);
+  --app-primary-tabs-border-color: var(--app-primary-dark-color);
+
+  // BOX DIALOG
+  --app-primary-box-dialog-default-color: #D9D9DB;
+  --app-primary-box-dialog-textual-color: #D9D9DB;
+  --app-primary-box-dialog-confirmation-color: var(--app-primary-color);
+  --app-primary-box-dialog-attention-color: #f44336;
+  --app-primary-box-dialog-information-color: #174580;
+
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  background-color: transparent !important;
+  color: var(--app-palette-color-one);
+}
+
+b {
+  font-weight: 500 !important;
+}
+
+

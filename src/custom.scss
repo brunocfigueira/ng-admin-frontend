@@ -1,0 +1,247 @@
+/* TEXTO UPPERCASE */
+.text-upper {
+  text-transform: uppercase;
+}
+
+.text-lower {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+/* ALINHAMENTO DE TEXTO */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/* ESPAÇO ENTRE ICONES */
+.icon-spacer {
+  padding: 0 14px;
+}
+
+/* INICIO - BARRA DE ROLAGEM */
+::-webkit-scrollbar, .table-responsive::-webkit-scrollbar {
+  width: 10px; /* Largura do scrollbar no eixo Y */
+  height: 10px; /* Altura do scrollbar no eixo X */
+}
+
+::-webkit-scrollbar-track, .table-responsive::-webkit-scrollbar-track {
+  background: var(--app-scrollbar-background-color); /* Cor do fundo da barra de rolagem */
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb, .table-responsive::-webkit-scrollbar-thumb {
+  background: var(--app-scrollbar-thumb-background-color); /* Cor do polegar da barra de rolagem */
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover, .table-responsive::-webkit-scrollbar-thumb:hover {
+  background: var(--app-scrollbar-hover-background-color); /* Cor mais escura ao passar o mouse */
+}
+
+/* FIM - BARRA DE ROLAGEM */
+
+
+/* INICIO - MAT TOOLBAR */
+mat-toolbar {
+  height: 50px !important;
+  min-height: 50px !important;
+}
+
+/* FIM - MAT TOOLBAR */
+
+/* INICIO - SNACKBAR COMPONENT */
+.mat-mdc-snack-bar-container {
+  border-radius: 5px !important;
+}
+
+.snackbar-success, .snackbar-success .mat-mdc-snackbar-surface {
+  background-color: var(--app-background-snackbar-success-color) !important;
+  color: var(--app-primary-text-light-color) !important;
+}
+
+.snackbar-error, .snackbar-error .mat-mdc-snackbar-surface {
+  background-color: var(--app-background-snackbar-error-color) !important;
+  color: var(--app-primary-text-light-color) !important;
+}
+
+.snackbar-warning, .snackbar-warning .mat-mdc-snackbar-surface {
+  background-color: var(--app-background-snackbar-warning-color) !important;
+  color: var(--app-primary-text-light-color) !important;
+}
+
+.snackbar-info, .snackbar-info .mat-mdc-snackbar-surface {
+  background-color: var(--app-background-snackbar-info-color) !important;
+  color: var(--app-primary-text-light-color) !important;
+}
+
+.snackbar-default, .snackbar-default .mat-mdc-snackbar-surface {
+  background-color: var(--app-background-snackbar-default-color) !important;
+  color: var(--app-primary-text-color) !important;
+}
+
+.snackbar-success .snackbar-content button mat-icon {
+  color: var(--app-primary-text-light-color);
+}
+
+.snackbar-success .snackbar-content button mat-icon,
+.snackbar-error .snackbar-content button mat-icon,
+.snackbar-info .snackbar-content button mat-icon,
+.snackbar-warning .snackbar-content button mat-icon {
+  color: var(--app-primary-text-light-color);
+}
+
+/* FIM - SNACKBAR COMPONENT */
+
+/* INICIO - TAGS PRE e CODE */
+code {
+  background-color: var(--app-tag-code-background-color);
+  color: var(--app-tag-code-color);
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+pre {
+  background-color: var(--app-tag-pre-background-color);
+  border: 1px solid var(--app-tag-pre-border-color);
+  border-radius: 4px;
+  overflow-x: auto;
+  max-height: 300px;
+}
+
+/* FIM - TAGS PRE e CODE */
+
+/* INICIO - SPINNER COMPONENT */
+.loading-spinner-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: all;
+}
+
+.loading-spinner-panel {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 8px;
+}
+
+.loading-spinner-panel .spinner-color svg circle {
+  stroke: var(--app-primary-dark-color) !important;
+}
+
+/* FIM - SPINNER COMPONENT */
+
+/* INICIO - DATA TABLE COMPONENT */
+table.data-table-component tr th .mat-sort-header-arrow,
+table.data-table-component tr th .mat-sort-header-stem,
+table.data-table-component tr th .mat-sort-header-indicator,
+table.item-details-table-component tr th .mat-sort-header-arrow,
+table.item-details-table-component tr th .mat-sort-header-stem,
+table.item-details-table-component tr th .mat-sort-header-indicator {
+  color: var(--app-primary-text-light-color) !important;
+}
+
+table.data-table-component, table.item-details-table-component {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+.data-table-component-input-search .mat-mdc-form-field-infix,
+.item-details-table-component-input-search .mat-mdc-form-field-infix {
+  width: 300px !important;
+}
+
+table.data-table-component thead tr th,
+table.item-details-table-component thead tr th {
+  position: sticky !important;
+  top: 0 !important;
+  background-color: var(--app-background-table-header-background-color) !important;
+  z-index: 2 !important;
+  color: var(--app-background-table-header-color) !important;
+}
+
+table.data-table-component tbody tr.detailed-row,
+table.item-details-table-component tbody tr.detailed-row {
+  background-color: var(--app-scrollbar-background-color);
+}
+
+table.data-table-component tbody tr.detailed-row td {
+  border-bottom: 0 !important;
+}
+
+table.data-table-component thead tr, table.data-table-component tbody tr,
+table.item-details-table-component thead tr, table.item-details-table-component tbody tr {
+  height: 40px !important;
+}
+
+table.data-table-component th:first-child,
+table.item-details-table-component th:first-child {
+  border-top-left-radius: 4px !important;
+}
+
+table.data-table-component th:last-child,
+table.item-details-table-component th:last-child {
+  border-top-right-radius: 4px !important;
+}
+
+table.data-table-component tbody tr:not(.data-not-found):hover {
+  background-color: var(--app-background-table-row-hover-color);
+}
+
+table.item-details-table-component tbody tr:not(.data-not-found):hover {
+  background-color: var(--app-background-table-row-hover-color);
+}
+
+table.data-table-component tbody tr.data-not-found,
+table.item-details-table-component tbody tr.data-not-found {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.table-responsive {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-bottom: 2px solid var(--app-primary-border-color);
+}
+
+/* FIM - DATA TABLE COMPONENT */
+
+/* FIM - TAB COMPONENT */
+.tab-component .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label,
+.tab-component .mat-mdc-tab.mdc-tab--active:focus .mdc-tab__text-label {
+  color: var(--app-primary-tabs-label-color) !important;
+}
+
+.tab-component .mat-mdc-tab.mdc-tab--active .mdc-tab-indicator__content--underline,
+.tab-component .mat-mdc-tab.mdc-tab--active:focus .mdc-tab-indicator__content--underline, {
+  border-color: var(--app-primary-tabs-border-color) !important;
+}
+
+/* FIM - TAB COMPONENT */
+
+
+/* INICIO - FORM CAR COMPONENT */
+.form-card-component {
+  border-left: 5px solid var(--app-primary-form-card-border-color) !important;
+  border-radius: 5px 5px !important;
+}
+
+.form-card-component .mat-mdc-card-title {
+  color: var(--app-primary-form-card-title-color) !important;
+  text-transform: uppercase;
+}
+
+/* FIM - FORM CAR COMPONENT */
+

@@ -1,0 +1,36 @@
+/* INICIO - Ajustes responsivos */
+@media (max-width: 768px) {
+  .mat-sidenav-content {
+    padding: 8px;
+  }
+
+  mat-toolbar {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .item-details-table-header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  table th,
+  table td {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  table th,
+  table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .item-details-table-container {
+    padding: 0 10px;
+  }
+}
+/* FIM - Ajustes responsivos */

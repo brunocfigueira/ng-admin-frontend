@@ -1,0 +1,13 @@
+<div class="snackbar-content">
+  <div class="left-content">
+    <span class="content-icon">
+        <mat-icon *ngIf="hasIcon()" aria-hidden="false">{{displayIcon()}}</mat-icon>
+    </span>
+    <span class="content-message">{{ data.message }}</span>
+  </div>
+  <button mat-icon-button (click)="close()" [matTooltip]="appConst.SNACKBAR.TOOLTIP.CLOSE">
+    <mat-icon aria-hidden="false">{{ data.icon || appConst.SNACKBAR.ICON.CLOSE }}</mat-icon>
+  </button>
+</div>
+
+

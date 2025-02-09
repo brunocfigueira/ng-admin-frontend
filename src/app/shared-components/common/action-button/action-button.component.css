@@ -1,0 +1,15 @@
+.btn-new:not(:disabled) {
+  color: var(--app-tag-button-new-color);
+}
+
+.btn-delete:not(:disabled) {
+  color: var(--app-tag-button-delete-color);
+}
+
+.btn-send:not(:disabled) {
+  color: var(--app-tag-button-send-color);
+}
+
+.btn-update:not(:disabled) {
+  color: var(--app-tag-button-edit-color);
+}

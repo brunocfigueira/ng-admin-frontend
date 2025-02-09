@@ -1,0 +1,59 @@
+.iframe-component {
+  box-shadow: none !important;
+  border: 1px solid var(--app-primary-text-light-color) !important;
+}
+
+.iframe-component mat-card-header,
+.iframe-component mat-card-header mat-card-subtitle {
+  background-color: var(--app-primary-color);
+  color: var(--app-primary-text-light-color);
+}
+
+.iframe-component mat-card-header {
+  border-radius: 5px 5px 0 0 !important;
+  padding: 15px;
+}
+
+.iframe-component mat-card-content {
+  padding: 0 !important;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-flex-center-space-between {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.iframe-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: auto;
+}
+
+iframe {
+  border: none;
+}
+
+.iframe-container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.iframe-container::-webkit-scrollbar-track {
+  background: var(--app-scrollbar-background-color);
+  border-radius: 2px;
+}
+
+.iframe-container::-webkit-scrollbar-thumb {
+  background: var(--app-scrollbar-thumb-background-color);
+  border-radius: 2px;
+}
+
+.iframe-container::-webkit-scrollbar-thumb:hover {
+  background: var(--app-scrollbar-hover-background-color);
+}

@@ -1,0 +1,32 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(-180deg, var(--app-palette-color-two), var(--app-palette-color-three) 5%, var(--app-palette-color-four) 25%, var(--app-palette-color-five) 100%);
+}
+
+.login-card {
+  width: 20%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.content-actions-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.forgot-password-link {
+  color: var(--app-palette-color-four) !important;
+}
+
+mat-card-header {
+  padding: 16px !important;
+}

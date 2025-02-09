@@ -1,0 +1,128 @@
+<p>See in this component how 'local-storage.service.ts' is used to display personalized or pre-defined messages.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+        <code>
+          import LocalStorageService from '../../services/output.service';
+
+          export class YourComponent &lbrace;
+            constructor(private localStorageService: LocalStorageService) &lbrace;&rbrace;
+
+            // create your methods or your logical
+            this.localStorageService.createItem('name', 'Test Name');
+            this.localStorageService.getItem('name');
+            this.localStorageService.updateItem('name', 'Test Name Update');
+            this.localStorageService.deleteItem('name');
+            this.localStorageService.getAllItems();
+            this.localStorageService.deleteAllItems();
+          &rbrace;
+        </code>
+      </pre>
+</div>
+<section>
+  <p><b>Examples</b></p>
+  <p><b>Item:</b> key - value</p>
+  <div class="display-button">
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Create Item"
+      (onClick)="eventCreateItem()"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Get Item"
+      (onClick)="eventGetItem()"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Update Item"
+      (onClick)="eventUpdateItem()"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Delete Item"
+      (onClick)="eventDeleteItem()"
+    ></app-action-button>
+  </div>
+  <p><b>Object:</b> key - object</p>
+  <div class="display-button">
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Create Objetc"
+      (onClick)="eventCreateObject()"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Get Objetc"
+      (onClick)="eventGetObject()"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Update Objetc"
+      (onClick)="eventUpdateObject()"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Delete objetc"
+      (onClick)="eventDeleteObject()"
+    ></app-action-button>
+  </div>
+  <p><b>List Object:</b> key - [object]</p>
+  <div class="display-button">
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Create List Objetc"
+      (onClick)="eventCreateListObject()"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Get List Objetc"
+      (onClick)="eventGetListObject()"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Update List Objetc"
+      (onClick)="eventUpdateListObject()"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Delete List Objetc"
+      (onClick)="eventDeleteListObject()"
+    ></app-action-button>
+  </div>
+  <p><b>All items</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Get all Item"
+      (onClick)="eventGetAllItems()"
+    ></app-action-button>
+
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label=" Delete All Items"
+      (onClick)="eventDeleteAllItems()"
+    ></app-action-button>
+  </div>
+
+</section>
+<section>
+  <p><b>Results</b></p>
+  <div class="display-results">
+    <div>{{ results | json }}</div>
+  </div>
+</section>

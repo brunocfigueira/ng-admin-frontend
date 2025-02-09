@@ -1,0 +1,62 @@
+<p>See in this component how 'box-dialog.service.ts' is used to display tabulated data with custom events and CRUD
+  actions.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+        <code>
+          import BoxDialogService from '../../services/box-dialog.service';
+
+          export class YourComponent implements OnInit &lbrace
+            constructor(private boxDialogService: BoxDialogService) &lbrace;&rbrace;
+            ngOnInit(): void &lbrace;
+              const optActions [&lbrace;
+                label: 'OK',
+                callback: () => this.callbackOk()
+              &rbrace;]
+              this.boxDialogService.openBoxDialogConfirmation(
+                'Which option do you want to choose?',
+                optActions
+              );
+            &rbrace;
+            callbackOk(): void &lbrace;
+              // your logical
+            &rbrace;
+          &rbrace;
+        </code>
+      </pre>
+</div>
+<section>
+  <p><b>Examples</b></p>
+  <div class="display-button">
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show BoxDialog Confirmation"
+      (onClick)="onClickButtonBoxDialog(1)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show BoxDialog Attention"
+      (onClick)="onClickButtonBoxDialog(2)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show BoxDialog Information"
+      (onClick)="onClickButtonBoxDialog(3)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show BoxDialog Textual"
+      (onClick)="onClickButtonBoxDialog(4)"
+    ></app-action-button>
+    <app-action-button
+      [showLabel]="true"
+      action="custom"
+      label="Show BoxDialog Default"
+      (onClick)="onClickButtonBoxDialog(5)"
+    ></app-action-button>
+  </div>
+</section>

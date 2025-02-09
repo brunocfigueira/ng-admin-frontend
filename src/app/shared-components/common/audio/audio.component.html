@@ -1,0 +1,104 @@
+@if (displayHeader) {
+  <mat-card class="audio-component" appearance="outlined">
+    <mat-card-header class="display-block" *ngIf="showHeader()">
+      <mat-card-title class="text-upper" *ngIf="showTitle()">
+        <div class="display-flex-center-space-between">
+          <span>{{ title }}</span>
+          <mat-icon aria-hidden="false">{{ appConst.AUDIO.ICON.HEADER_TITLE }}</mat-icon>
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle class="text-left" *ngIf="showSubtitle()">{{ subtitle }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="isPlaylist" [ngStyle]="applyPlaylistStyle()">
+        <div *ngIf="showPlaylist">
+          <div class="header-audio-playlist">
+            <span class="text-upper">{{ displayNamePlayList() }}</span>
+          </div>
+          <div class="overflow-audio-playlist">
+            <mat-nav-list>
+              <mat-list-item
+                [activated]="i === currentAudioIndex"
+                *ngFor="let audio of audioPlaylist; let i = index" (click)="playNow(i)">
+                <div class="display-flex-center-space-between">
+                  <div>
+                    <span matListItemTitle>{{ audio.name }}</span>
+                    <span matListItemLine>{{ audio.description }}</span>
+                  </div>
+                  <mat-icon aria-hidden="false"
+                            *ngIf="i === currentAudioIndex">
+                    {{ appConst.AUDIO.ICON.AUDIO_LIST_ITEM }}
+                  </mat-icon>
+                </div>
+              </mat-list-item>
+            </mat-nav-list>
+          </div>
+        </div>
+        <div class="display-flex-center-space-between">
+          <button mat-icon-button (click)="playPrevious()">
+            <mat-icon>{{ appConst.AUDIO.ICON.PLAY_PREVIOUS }}</mat-icon>
+          </button>
+          <button mat-icon-button (click)="playNext()">
+            <mat-icon>{{ appConst.AUDIO.ICON.PLAY_NEXT }}</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="audio-container">
+        <audio #audioComponent
+               [matTooltip]="title"
+               [ngStyle]="applyAudioStyle()">
+          <source [src]="src" [type]="type">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </mat-card-content>
+  </mat-card>
+} @else {
+  <div>
+    <div *ngIf="isPlaylist" [ngStyle]="applyPlaylistStyle()">
+      <div *ngIf="showPlaylist">
+        <div class="header-audio-playlist">
+          <span class="text-upper">{{ displayNamePlayList() }}</span>
+        </div>
+        <div class="overflow-audio-playlist">
+          <mat-nav-list>
+            <mat-list-item
+              [activated]="i === currentAudioIndex"
+              *ngFor="let audio of audioPlaylist; let i = index" (click)="playNow(i)">
+              <div class="display-flex-center-space-between">
+                <div>
+                  <span matListItemTitle>{{ audio.name }}</span>
+                  <span matListItemLine>{{ audio.description }}</span>
+                </div>
+                <mat-icon aria-hidden="false"
+                          *ngIf="i === currentAudioIndex">
+                  {{ appConst.AUDIO.ICON.AUDIO_LIST_ITEM }}
+                </mat-icon>
+              </div>
+            </mat-list-item>
+          </mat-nav-list>
+        </div>
+      </div>
+      <div class="display-flex-center-space-between">
+        <button mat-icon-button (click)="playPrevious()">
+          <mat-icon>{{ appConst.AUDIO.ICON.PLAY_PREVIOUS }}</mat-icon>
+        </button>
+        <button mat-icon-button (click)="playNext()">
+          <mat-icon>{{ appConst.AUDIO.ICON.PLAY_NEXT }}</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="audio-container">
+      <audio #audioComponent
+             [matTooltip]="title"
+             [ngStyle]="applyAudioStyle()">
+        <source [src]="src" [type]="type">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+}
+
+
+
+

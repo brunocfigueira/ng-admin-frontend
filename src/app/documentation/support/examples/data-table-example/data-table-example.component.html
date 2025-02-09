@@ -1,0 +1,121 @@
+<p>Use the DataTableComponent in a <b>simple</b> way to display tabulated data.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+       <pre>
+         <code>
+           import DataTableComponent from '../../shared/common/data-table/data-table.component';
+           export class YourComponent implements &lbrace;
+           dataColumns: DataTableColumn&lbrack;&rbrack; = &lbrack;
+               &lbrace;key: 'id', title: 'Id'&rbrace;,
+               &lbrace;key: 'name', title: 'Name'&rbrace;,
+            &rbrack;;
+            dataTable: any&lbrack;&rbrack; = &lbrack;
+                &lbrace;id: 1, name: 'Name One'&rbrace;,
+                &lbrace;id: 2, name: 'Name Two'&rbrace;,
+                ...
+            &rbrack;;
+           &rbrace;
+         </code>
+       </pre>
+  <pre>
+         <code>
+           your.component.html
+
+           &lt;app-data-table
+                    &lbrack;maxHeight&rbrack;="500"
+                    &lbrack;isHttpRequest&rbrack;="false"
+                    &lbrack;dataColumns&rbrack;="dataColumns"
+                    &lbrack;dataTable&rbrack;="dataTable"
+            &gt;&lt;/app-data-table&gt;
+         </code>
+       </pre>
+</div>
+<br/>
+<p><b>Simple Use</b></p>
+<section class="table">
+  <app-data-table
+    [maxHeight]="500"
+    [isHttpRequest]="false"
+    [dataColumns]="dataColumns"
+    [dataTable]="dataTable"
+  ></app-data-table>
+</section>
+<br/>
+<p>Use the Data Table component in an <b>advanced</b> way to display tabulated data.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+      <pre>
+         <code>
+           // all attributes
+           your.component.html
+
+            &lt;app-data-table
+                [maxHeight]="500"
+                [isHttpRequest]="false"
+                [dataColumns]="dataColumns"
+                [dataTable]="dataTable"
+                [showActionExportPdf]="true"
+                (onExportPdf)="eventExportPdf($event)"
+                [showActionExportCsv]="true"
+                (onExportCsv)="eventExportCsv($event)"
+                [showActionRefresh]="true"
+                (onRefresh)="eventRefresh()"
+                [showActionCreate]="true"
+                (onCreate)="eventCreateRecord()"
+                [showInputSearch]="true"
+                (onSearch)="eventSearchRecords($event)"
+                [showActionEdit]="true"
+                (onEdit)="eventEditRecord($event)"
+                [showActionDelete]="true"
+                (onDelete)="eventDeleteRecord($event)"
+                [showActionDeleteAll]="true"
+                (onDeleteAll)="eventDeleteAllRecords($event)"
+                [showPagination]="true"
+                (onPageChange)="eventPageChange($event)"
+                [showActionDetails]="true"
+                [maxHeightItemDetails]="250"
+                [showInputSearchItemDetails]="true"
+                [showPaginationItemDetails]="true"
+                [itemDetailsColumns]="itemDetailsColumns"
+                [itemDetailsTable]="itemDetailsTable"
+                (onViewItemDetails)="eventViewItemDetails($event)"
+            &gt;&lt;/app-data-table&gt;
+
+         </code>
+       </pre>
+</div>
+<br/>
+<p><b>Advanced Use</b></p>
+<section class="table">
+  <app-data-table
+    [maxHeight]="500"
+    [isHttpRequest]="false"
+    [dataColumns]="dataColumns"
+    [dataTable]="dataTable"
+    [showActionExportPdf]="true"
+    (onExportPdf)="eventExportPdf($event)"
+    [showActionExportCsv]="true"
+    (onExportCsv)="eventExportCsv($event)"
+    [showActionRefresh]="true"
+    (onRefresh)="eventRefresh()"
+    [showActionCreate]="true"
+    (onCreate)="eventCreateRecord()"
+    [showInputFilter]="true"
+    (onFilter)="eventFilterRecords($event)"
+    [showActionEdit]="true"
+    (onEdit)="eventEditRecord($event)"
+    [showActionDelete]="true"
+    (onDelete)="eventDeleteRecord($event)"
+    [showActionDeleteAll]="true"
+    (onDeleteAll)="eventDeleteAllRecords($event)"
+    [showPagination]="true"
+    (onPageChange)="eventPageChange($event)"
+    [showActionDetails]="true"
+    [maxHeightItemDetails]="250"
+    [showInputSearchItemDetails]="true"
+    [showPaginationItemDetails]="true"
+    [itemDetailsColumns]="itemDetailsColumns"
+    [itemDetailsTable]="itemDetailsTable"
+    (onViewItemDetails)="eventViewItemDetails($event)"
+  ></app-data-table>
+</section>

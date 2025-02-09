@@ -1,0 +1,16 @@
+<mat-divider></mat-divider>
+<mat-accordion class="nav-menu">
+  <mat-expansion-panel *ngFor="let menu of arrayMenus" [expanded]="menu.expanded">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="text-upper"> {{ menu.groupName }}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of menu.items"
+                     role="listitem"
+                     routerLinkActive="active"
+                     [routerLink]="item.link">
+        {{ item.label }}
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-expansion-panel>
+</mat-accordion>

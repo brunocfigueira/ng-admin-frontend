@@ -1,0 +1,97 @@
+<p>See in this component how the 'FormCardComponent' is used to display form data with action buttons.</p>
+<p>Explore all possible component attributes.</p>
+<div>
+  <pre>
+        <code>
+          import &#123;ActionButtonComponent&#125; from &#39;../../../../shared/common/action-button/action-button.component&#39;;
+          import &#123;FormCardComponent&#125; from &#39;../../../../shared/common/form-card/form-card.component&#39;;
+
+          export class FormCardExampleComponent &#123;
+            &#64;ViewChild(&#39;formContentRef&#39;, &#123;static: true&#125;) formContentRef!: TemplateRef&lt;any&gt;;
+            &#64;ViewChild(&#39;actionButtonsRef&#39;, &#123;static: true&#125;) actionButtonsRef!: TemplateRef&lt;any&gt;;
+
+            protected formTitle = &#39;Title of Form&#39;;
+            protected formSubtitle = &#39;A brief description of the form&#39;;
+
+            constructor(private outputService: OutputService) &#123;
+            &#125;
+            protected eventClickButton(event: MouseEvent) &#123;
+              this.outputService.showShortMessageDefault(&#34;Save button click event&#34;);
+            &#125;
+          &#125;
+
+        </code>
+  </pre>
+  <pre>
+        <code>
+          your.component.html
+
+          &lt;app-form-card
+              [title]=&#34;formTitle&#34;
+              [subtitle]=&#34;formSubtitle&#34;
+              [formContentTemplate]=&#34;formContentRef&#34;
+              [actionButtonsTemplate]=&#34;actionButtonsRef&#34;
+              alignActionButtons=&#34;start&#34;
+          &gt;
+              &lt;ng-template #formContentRef&gt;
+                &lt;form class=&#34;form-example&#34;&gt;
+                  &lt;mat-form-field appearance=&#34;outline&#34; class=&#34;form-field&#34;&gt;
+                    &lt;mat-label&gt;Name&lt;/mat-label&gt;
+                    &lt;input matInput placeholder=&#34;Type name&#34; required /&gt;
+                  &lt;/mat-form-field&gt;
+                  &lt;mat-form-field appearance=&#34;outline&#34; class=&#34;form-field&#34;&gt;
+                    &lt;mat-label&gt;E-mail&lt;/mat-label&gt;
+                    &lt;input matInput placeholder=&#34;Type e-mail&#34; type=&#34;email&#34; required /&gt;
+                  &lt;/mat-form-field&gt;
+                  &lt;mat-form-field appearance=&#34;outline&#34; class=&#34;form-field&#34;&gt;
+                    &lt;mat-label&gt;Password&lt;/mat-label&gt;
+                    &lt;input matInput placeholder=&#34;Type password&#34; type=&#34;password&#34; required /&gt;
+                  &lt;/mat-form-field&gt;
+                &lt;/form&gt;
+              &lt;/ng-template&gt;
+              &lt;ng-template #actionButtonsRef&gt;
+                &lt;app-action-button
+                  [showIcon]=&#34;true&#34;
+                  [showLabel]=&#34;true&#34;
+                  actionType=&#34;save&#34;
+                  (onClick)=&#34;eventClickButton($event)&#34;
+                &gt;&lt;/app-action-button&gt;
+              &lt;/ng-template&gt;
+          &lt;/app-form-card&gt;
+        </code>
+      </pre>
+</div>
+<section>
+  <app-form-card
+    [title]="formTitle"
+    [subtitle]="formSubtitle"
+    [formContentTemplate]="formContentRef"
+    [actionButtonsTemplate]="actionButtonsRef"
+    alignActionButtons="start"
+  >
+    <ng-template #formContentRef>
+      <form class="form-example">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Type name" required/>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="Type e-mail" type="email" required/>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Type password" type="password" required/>
+        </mat-form-field>
+      </form>
+    </ng-template>
+    <ng-template #actionButtonsRef>
+      <app-action-button
+        [showIcon]="true"
+        [showLabel]="true"
+        action="save"
+        (onClick)="eventClickButton($event)"
+      ></app-action-button>
+    </ng-template>
+  </app-form-card>
+</section>

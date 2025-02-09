@@ -1,0 +1,11 @@
+.custom-card {
+  width: 100%; /* Garantir que o card se ajuste à largura do grid-tile */
+  height: 100%; /* Garantir que o card ocupe todo o espaço disponível */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
